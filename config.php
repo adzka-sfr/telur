@@ -16,7 +16,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.
     $host = 'localhost';
     $user = 'root';
     $password = '';
-    $database = 'split_bill';
+    $database = 'telur';
 } else {
     // hosting
     $host = 'localhost'; // usually still localhost on most shared hosting
@@ -38,6 +38,8 @@ if (isset($_SESSION['session_id'])) {
     $session_status = 'inactive';
 }
 
+// token for registration
+$token_key = 'ayamtelur45';
 
 // base url
 function base_url($path = '')
@@ -45,14 +47,14 @@ function base_url($path = '')
     $is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
     $protocol = $is_https ? "https" : "http";
     // Use '/split_bill' for local (http), use '' for hosting (https)
-    $base = $is_https ? $_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] . '/split_bill';
+    $base = $is_https ? $_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] . '/telur';
     return $protocol . "://" . $base . "/" . ltrim($path, '/');
 }
 
 // For including PHP files, use the server's document root
 function base_path($path = null)
 {
-    $base_path = $_SERVER['DOCUMENT_ROOT'] . '/split_bill/'; // local
+    $base_path = $_SERVER['DOCUMENT_ROOT'] . '/telur/'; // local
     // $base_path = $_SERVER['DOCUMENT_ROOT']; // hosting
     if ($path != null) {
         return $base_path . '/' . trim($path, '/');

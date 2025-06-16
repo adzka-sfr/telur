@@ -14,7 +14,7 @@ if (isset($_SESSION['sb_id'])) {
                 <div class="card shadow">
                     <div class="card-header text-center">
                         <!-- <h2>Split Bill<sub style="font-size: 10px;">by Adzka</sub></h2> -->
-                        <p class="text-muted">Login or Register to continue</p>
+                        <p class="text-muted">Login atau Register</p>
                     </div>
                     <div class="card-body">
                         <ul class="nav nav-tabs mb-3" id="authTab" role="tablist">
@@ -28,7 +28,7 @@ if (isset($_SESSION['sb_id'])) {
                         <div class="tab-content" id="authTabContent">
                             <div class="tab-pane fade show active" id="login" role="tabpanel">
                                 <div class="mb-3">
-                                    <label for="loginEmail" class="form-label">Email address</label>
+                                    <label for="loginEmail" class="form-label">Username</label>
                                     <input type="email" class="form-control" id="loginEmail" required>
                                 </div>
                                 <div class="mb-3">
@@ -46,6 +46,10 @@ if (isset($_SESSION['sb_id'])) {
                                     <label for="registerPassword" class="form-label">Password</label>
                                     <input type="password" class="form-control" id="registerPassword" required>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="registerToken" class="form-label">Token</label>
+                                    <input type="password" class="form-control" id="registerToken" required>
+                                </div>
                                 <button type="button" class="btn btn-success w-100" id="btn-register">Register</button>
                             </div>
                         </div>
@@ -60,11 +64,12 @@ if (isset($_SESSION['sb_id'])) {
             $('#btn-register').click(function() {
                 var username = $('#registerName').val();
                 var password = $('#registerPassword').val();
-                if (username === '' || password === '') {
+                var token = $('#registerToken').val();
+                if (username === '' || password === '' || token === '') {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error',
-                        text: 'Please fill in all fields!'
+                        title: 'Gagal',
+                        text: 'Silahkan isi semua kotak!'
                     });
                     return;
                 } else {
@@ -73,14 +78,15 @@ if (isset($_SESSION['sb_id'])) {
                         type: 'POST',
                         data: {
                             username: username,
-                            password: password
+                            password: password,
+                            token: token
                         },
                         success: function(response) {
                             if (response === 'success') {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Success',
-                                    text: 'Registration successful! Logging you in...'
+                                    title: 'Berhasil',
+                                    text: 'Registrasi berhasil! Anda akan segera masuk...'
                                 }).then(function() {
                                     // Fill login fields
                                     $('#loginEmail').val($('#registerName').val());
@@ -89,6 +95,18 @@ if (isset($_SESSION['sb_id'])) {
                                     $('#login-tab').click();
                                     // Trigger login
                                     $('#btn-login').focus().click();
+                                });
+                            } else if (response === 'invalid-token') {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Gagal',
+                                    text: 'Token salah!'
+                                });
+                            } else if (response === 'username-exist') {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Gagal',
+                                    text: 'Username sudah terdaftar!'
                                 });
                             } else {
                                 Swal.fire({
@@ -159,7 +177,7 @@ if (isset($_SESSION['sb_id'])) {
                         }
                     });
                 }
-            }); 
+            });
         });
     </script>
 

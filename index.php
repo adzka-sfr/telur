@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/split_bill/config.php'; // local
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/telur/config.php'; // local
 } else {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php'; // hosting
 }
