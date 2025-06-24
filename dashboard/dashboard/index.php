@@ -34,20 +34,76 @@
 </div>
 
 <div class="row">
-    <div class="col-12 mt-4">
-        <table class="table table-bordered">
+    <div class="col-12 text-center mt-3">
+        <!-- Button to trigger modal -->
+        <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#transaksiModal">
+            Tambah transaksi
+        </button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="transaksiModal" tabindex="-1" aria-labelledby="transaksiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="transaksiModalLabel">Tambah Transaksi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="transaksiForm">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-2">
+                            <label for="stockAmount" class="form-label">Jumlah</label>
+                            <input type="number" class="form-control" id="stockAmount" name="stockAmount" min="1" required>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label for="stockUnit" class="form-label">Satuan</label>
+                            <select class="form-select" id="stockUnit" name="stockUnit" required>
+                                <option value="kg">Kg</option>
+                                <option value="ons">Ons</option>
+                                <option value="gram">Gram</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            <label class="form-label d-block">Status</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="stockStatus" id="stockIn" value="in" required>
+                                <label class="form-check-label" for="stockIn">Masuk</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="stockStatus" id="stockOut" value="out" required>
+                                <label class="form-check-label" for="stockOut">Keluar</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" form="transaksiForm" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered" style="font-size: 12px;">
             <thead style="text-align: center;">
                 <tr>
                     <th>Tanggal</th>
                     <th>Orang</th>
                     <th>Status</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>2023-10-01</td>
+                    <td style="text-align: center;">2023-10-01</td>
                     <td>John Doe</td>
-                    <td><span class="badge bg-success">Masuk</span></td>
+                    <td style="text-align: center;"><span class="badge bg-success">Masuk</span></td>
+                    <td style="text-align: center;">50 Kg</td>
                 </tr>
             </tbody>
         </table>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Split Bill</title>
+    <title>Telur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -23,5 +23,5 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
+
 </head>
