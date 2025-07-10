@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12">
         <div class="mb-3">
-            <input type="month" class="form-control" id="filterMonth" name="filterMonth" value="<?php echo date('Y-m'); ?>">
+            <input type="month" class="form-control" id="filterMonth" name="filterMonth" onchange="getTotalPenjualanPembelian()" value="<?php echo date('Y-m'); ?>">
         </div>
     </div>
 </div>
@@ -128,7 +128,7 @@
     $(document).ready(function() {
 
         getTotalPenjualanPembelian();
-        getDataTable();
+
     });
 
     // function to get total penjualan dan total pembelian
@@ -147,7 +147,7 @@
                     $('#pembelian_kg').text(data.pembelian_kg);
                     $('#penjualan_harga').text(Number(data.penjualan_harga).toLocaleString('id-ID'));
                     $('#pembelian_harga').text(Number(data.pembelian_harga).toLocaleString('id-ID'));
-
+                    getDataTable();
 
                 } else if (data.status === 'not_logged_in') {
                     Swal.fire({
@@ -310,7 +310,9 @@
                 $.ajax({
                     url: 'dashboard/data4.php',
                     type: 'POST',
-                    data: { id: id },
+                    data: {
+                        id: id
+                    },
                     success: function(response) {
                         var data = JSON.parse(response);
                         if (data.status === 'success') {
