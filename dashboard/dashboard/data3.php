@@ -19,7 +19,7 @@ $filterMonth = isset($_POST['filterMonth']) ? trim($_POST['filterMonth']) : '';
 $month = date('Y-m', strtotime($filterMonth));
 
 ?>
-<table class="table table-bordered" style="font-size: 12px; width: 100%;">
+<table class="table table-bordered" style="font-size: 10px; width: 100%;">
     <thead style="text-align: center;">
         <tr>
             <th></th>
@@ -43,9 +43,9 @@ $month = date('Y-m', strtotime($filterMonth));
                     </td>
                     <td><?php echo date('d M Y', strtotime($row['c_date'])); ?></td>
                     <td style="text-align: left;"><?php echo htmlspecialchars($row['c_person']); ?></td>
-                    <td><?php echo htmlspecialchars($row['c_status']); ?></td>
-                    <td><?php echo htmlspecialchars($row['c_weight']); ?> Kg</td>
-                    <td>Rp. <?php echo number_format($row['c_price'], 0, ',', '.'); ?></td>
+                    <td style="text-align: center;"><?php echo htmlspecialchars($row['c_status']); ?></td>
+                    <td style="text-align: right;"><?php echo htmlspecialchars($row['c_weight']); ?></td>
+                    <td style="text-align: right;"><?php echo number_format($row['c_price'], 0, ',', '.'); ?></td>
                 </tr>
         <?php
             }

@@ -20,8 +20,8 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.
 } else {
     // hosting
     $host = 'localhost'; // usually still localhost on most shared hosting
-    $user = 'u266480338_split_bill';
-    $database = 'u266480338_split_bill';
+    $user = 'u266480338_telur';
+    $database = 'u266480338_telur';
     $password = 'Ngapainribetjir!123';
 }
 
