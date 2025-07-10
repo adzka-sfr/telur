@@ -21,16 +21,13 @@ if (!isset($_SESSION['sb_id'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="main.php?page=dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                        <a class="nav-link active" aria-current="page" href="main.php?page=dashboard"><i class="fas fa-home"></i> Halaman Utama</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="main.php?page=history"><i class="fas fa-receipt"></i> History</a>
+                        <a class="nav-link" href="main.php?page=history"><i class="fas fa-receipt"></i> Riwayat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="main.php?page=profile"><i class="fas fa-user"></i> Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="main.php?page=logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a class="nav-link" href="main.php?page=logout"><i class="fas fa-sign-out-alt"></i> Keluar</a>
                     </li>
                 </ul>
             </div>
